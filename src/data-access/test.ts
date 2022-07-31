@@ -1,13 +1,19 @@
 
 
-export class Test {
+export class UserAccessService {
 
-    static foo() {
-        fetch('http://localhost:3001/users')
-            .then(response => response.json())
-            .then(json => console.log(json))
+    static async fetchUsers() {
+        try {
+            let res = await fetch('http://localhost:3001/users');
+            return res.json();
+    
+        } catch (error){
+            console.log(error);
+            
+        }    
     }
 
 
 
 }
+
